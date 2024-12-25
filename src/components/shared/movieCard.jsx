@@ -1,5 +1,12 @@
 import { Component } from "react";
 
+import { FaCircle } from "react-icons/fa";
+import { CiBookmark } from "react-icons/ci";
+import { FaPlay } from "react-icons/fa";
+import { MdOutlineDownloading } from "react-icons/md";
+
+import { MovieCardBtn, SaveListBtn } from "../shared/buttons.jsx";
+
 
 export class MovieCard extends Component {
     constructor() {
@@ -14,14 +21,15 @@ export class MovieCard extends Component {
                 lang3: "Hindi",
                 lang4: "Telugu",
             },
-            season: "season1",
+            time: "1h 58 min",
             cate: {
-                cat1: "Action",
-                cat: "Thriller"
+                cat1: "Crime",
+                cat2: "Thriller"
             },
-            movieRate: "A",
+            saveList: "List",
             date: "20 Dec, 2024",
-            star: "0"
+            star: "0",
+            para:"A notorius gang in 1919 Birmingham, England, is led by the fierce Tommy Shelby, a crime boss set on moving up in the world no matter the cost",
         }
     }
     render() {
@@ -48,9 +56,28 @@ export class MovieCard extends Component {
                                         </ul>
                                     </div>
                                 </div>
+                                <div className="dl">
+                                    <ul>
+                                        <li>{this.state.time}</li>
+                                        <li><FaCircle style={{fontSize:"0.5rem"}}/> {this.state.cate.cat1}, {this.state.cate.cat2}</li>
+                                        <li><FaCircle style={{fontSize:"0.5rem"}}/> {this.state.date}</li>
+                                    </ul>
+                                </div>
+                                <div className="dl-p">
+                                    <p>{this.state.para}</p>
+                                </div>
+                                <div className="m-card-btn">
+                                    <MovieCardBtn btnTitle={"Play"} icon={<FaPlay style={{fontSize:"0.875rem"}}/>}/>
+                                    <MovieCardBtn btnTitle={"Download"} icon={<MdOutlineDownloading style={{fontSize:"1rem"}}/>}/>
+                                </div>
                             </div>
                         </div>
-                        <div className="m-card-rit"></div>
+                        <div className="m-card-rit">
+                            <div className="mcr-top">
+                                <SaveListBtn saveBtnT={this.state.saveList} sbIcon={<CiBookmark />}/>
+                            </div>
+                            <div className="mcr-btm"></div>
+                        </div>
                     </div>
                 </div>
             </>

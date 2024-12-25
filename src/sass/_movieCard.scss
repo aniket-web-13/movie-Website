@@ -21,7 +21,7 @@
     align-items: flex-start;
     justify-content: space-between;
     border-radius: 2rem;
-    border: none;
+    border: none;    
 }
 
 .m-card-lft {
@@ -29,13 +29,13 @@
     height: fit-content;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 1rem;
 }
 
 .mcl-img {
-    width: 30%;
+    width: 42%;
     height: 100%;
 
     img {
@@ -51,7 +51,8 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 1.125rem;
+    gap: 1.25rem;
+    margin-top: 2.25rem;
 }
 
 .dl-sec {
@@ -84,4 +85,18 @@
     }
 
 
+}
+.dl-p{
+    width: 80%;
+}
+.m-card-btn{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+.m-card-rit{
+    width: 20%;
 }
