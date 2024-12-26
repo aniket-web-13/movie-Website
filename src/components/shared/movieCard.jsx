@@ -4,6 +4,9 @@ import { FaCircle } from "react-icons/fa";
 import { CiBookmark } from "react-icons/ci";
 import { FaPlay } from "react-icons/fa";
 import { MdOutlineDownloading } from "react-icons/md";
+import { FaPlus } from "react-icons/fa";
+import { FaMinus } from "react-icons/fa";
+
 
 import { MovieCardBtn, SaveListBtn } from "../shared/buttons.jsx";
 
@@ -13,7 +16,7 @@ export class MovieCard extends Component {
         super();
         this.state = {
             src: "https://i.pinimg.com/736x/69/6b/77/696b77a925bb7e2a9dce7049c173d103.jpg",
-            name: "Peaky blinders",
+            name: "Peaky Blinders",
             d: "2D",
             language: {
                 lang1: "English",
@@ -30,8 +33,14 @@ export class MovieCard extends Component {
             date: "20 Dec, 2024",
             star: "0",
             para:"A notorius gang in 1919 Birmingham, England, is led by the fierce Tommy Shelby, a crime boss set on moving up in the world no matter the cost",
+        }   
+    };
+    increase = () => {
+        if (this.state.star <= 0) {
+          star: this.setState += 1
         }
-    }
+    };
+    
     render() {
         return (
             <>
@@ -76,8 +85,13 @@ export class MovieCard extends Component {
                             <div className="mcr-top">
                                 <SaveListBtn saveBtnT={this.state.saveList} sbIcon={<CiBookmark />}/>
                             </div>
-                            <div className="mcr-btm"></div>
-                        </div>
+                            <div className="mcr-btm dl" >
+                                <p>Rate us</p>
+                                <button className="pm-btn" onClick={this.increase}><FaPlus /></button>
+                                <h3>{this.state.star}</h3>
+                                <button className="pm-btn"><FaMinus /></button>
+                            </div>
+                        </div>  
                     </div>
                 </div>
             </>
