@@ -31,16 +31,38 @@ export class MovieCard extends Component {
             },
             saveList: "List",
             date: "20 Dec, 2024",
-            star: "0",
+            star: 0,
             para:"A notorius gang in 1919 Birmingham, England, is led by the fierce Tommy Shelby, a crime boss set on moving up in the world no matter the cost",
         }   
     };
-    increase = () => {
-        if (this.state.star <= 0) {
-          star: this.setState += 1
-        }
-    };
+    /*increase = () => {
+        if (this.state.star < 5) {
+            this.setState({
+                star: this.state.star + 1
+            }) 
+        }        
+      };*/
     
+    increase = () => {
+      if (this.state.star < 5) {
+            return (
+                this.setState((prevState) => ({
+                    star: prevState.star + 1
+                }))
+             )    
+        }  
+    };
+
+    decrease = () => {
+        if (this.state.star = this.state.star) {
+            return (
+                this.setState((prevState) => ({
+                    star: prevState.star - 1
+                }))
+            )
+        }
+    }; 
+
     render() {
         return (
             <>
@@ -89,7 +111,7 @@ export class MovieCard extends Component {
                                 <p>Rate us</p>
                                 <button className="pm-btn" onClick={this.increase}><FaPlus /></button>
                                 <h3>{this.state.star}</h3>
-                                <button className="pm-btn"><FaMinus /></button>
+                                <button className="pm-btn" onClick={this.decrease}><FaMinus /></button>
                             </div>
                         </div>  
                     </div>
