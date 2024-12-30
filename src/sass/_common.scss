@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -6,9 +9,14 @@
 }
 body{
     width: 100vw;
+    font-family: "DM Sans", serif;
 }
 h1{
     font-size: 2.25rem;
     font-weight: 700;
     color: #ffff;
+    font-family: "Playfair Display", serif;
+}
+p{
+    font-weight: 500;
 }

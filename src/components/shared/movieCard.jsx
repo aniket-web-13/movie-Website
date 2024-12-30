@@ -7,12 +7,12 @@ import { MovieCardBtn } from "../shared/buttons.jsx";
 
 export class MovieCard extends Component {
     render() {
-        const { series } = this.props;
+        const { series, onIncrease, onDecrease } = this.props;
 
         // console.log("Series prop received:", series); // Log the series prop
 
         const { src, name, d, language, time, cate, saveList, date, star, para } = series;
-        const {onIncrease, onDecrease} = this.props;
+        const { } = this.props;
         console.log(onIncrease);
 
         return (

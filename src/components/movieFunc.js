@@ -1,5 +1,5 @@
 import { Component } from "react";
-// import { LuBookmark, LuBookmarkCheck  } from "react-icons/lu";
+import { LuBookmark, LuBookmarkCheck  } from "react-icons/lu";
 
 
 
@@ -113,9 +113,9 @@ export class MovieInfo extends Component {
         }
     };
 
-    // bookMarkAdd = () => {
-    //     { this.state.saveList ? <LuBookmarkCheck /> : <LuBookmark /> };
-    // }
+    bookMarkAdd = () => {
+        { this.state.saveList ? <LuBookmarkCheck /> : <LuBookmark /> };
+    }
     render() {
 
         const { series } = this.state;
@@ -129,6 +129,7 @@ export class MovieInfo extends Component {
                         series={value}
                         onIncrease={this.increase()}
                         onDecrease={this.decrease()}
+                        onAdd={this.bookMarkAdd()}
                     />
                 ))}
             </>
