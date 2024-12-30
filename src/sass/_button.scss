@@ -1,4 +1,4 @@
-.pd-btn{
+.pd-btn {
     width: 50%;
     padding: 0.5rem 1.5rem;
     background-color: white;
@@ -14,13 +14,14 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    &:hover{
+
+    &:hover {
         color: white;
         background-color: black;
     }
 }
 
-.pm-btn{
+.pm-btn {
     padding: 0.25rem 0.5rem;
     background-color: white;
     color: black;
@@ -32,9 +33,9 @@
     font-weight: 500;
     line-height: -160%;
     border-radius: 0.25rem;
-    &:hover{
+
+    &:hover {
         color: white;
         background-color: black;
     }
 }
-

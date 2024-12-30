@@ -1,122 +1,75 @@
 import { Component } from "react";
+import { FaCircle, FaPlay, FaPlus, FaMinus } from "react-icons/fa";
+import { LuBookmark, LuBookmarkCheck } from "react-icons/lu";
 
-import { FaCircle } from "react-icons/fa";
-import { CiBookmark } from "react-icons/ci";
-import { FaPlay } from "react-icons/fa";
 import { MdOutlineDownloading } from "react-icons/md";
-import { FaPlus } from "react-icons/fa";
-import { FaMinus } from "react-icons/fa";
-
-
-import { MovieCardBtn, SaveListBtn } from "../shared/buttons.jsx";
-
+import { MovieCardBtn } from "../shared/buttons.jsx";
 
 export class MovieCard extends Component {
-    constructor() {
-        super();
-        this.state = {
-            src: "https://i.pinimg.com/736x/69/6b/77/696b77a925bb7e2a9dce7049c173d103.jpg",
-            name: "Peaky Blinders",
-            d: "2D",
-            language: {
-                lang1: "English",
-                lang2: "Freanch",
-                lang3: "Hindi",
-                lang4: "Telugu",
-            },
-            time: "1h 58 min",
-            cate: {
-                cat1: "Crime",
-                cat2: "Thriller"
-            },
-            saveList: "List",
-            date: "20 Dec, 2024",
-            star: 0,
-            para:"A notorius gang in 1919 Birmingham, England, is led by the fierce Tommy Shelby, a crime boss set on moving up in the world no matter the cost",
-        }   
-    };
-    /*increase = () => {
-        if (this.state.star < 5) {
-            this.setState({
-                star: this.state.star + 1
-            }) 
-        }        
-      };*/
-    
-    increase = () => {
-      if (this.state.star < 5) {
-            return (
-                this.setState((prevState) => ({
-                    star: prevState.star + 1
-                }))
-             )    
-        }  
-    };
-
-    decrease = () => {
-        if (this.state.star = this.state.star) {
-            return (
-                this.setState((prevState) => ({
-                    star: prevState.star - 1
-                }))
-            )
-        }
-    }; 
-
     render() {
+        const { series } = this.props;
+
+        // console.log("Series prop received:", series); // Log the series prop
+
+        const { src, name, d, language, time, cate, saveList, date, star, para } = series;
+        const {onIncrease, onDecrease} = this.props;
+        console.log(onIncrease);
+
         return (
             <>
                 <div className="movie-card-count">
                     <div className="movie-card">
                         <div className="m-card-lft">
                             <div className="mcl-img">
-                                <img src={this.state.src} alt="" />
+                                <img src={src} alt="" />
                             </div>
                             <div className="mcl-info">
-                                <h1>{this.state.name}</h1>
+                                <h1>{name}</h1>
                                 <div className="dl-sec">
                                     <div className="dl">
-                                        <p>{this.state.d}</p>
+                                        <p>{d}</p>
                                     </div>
                                     <div className="dl">
                                         <ul>
-                                            <li>{this.state.language.lang1},</li>
-                                            <li>{this.state.language.lang2},</li>
-                                            <li>{this.state.language.lang3},</li>
-                                            <li>{this.state.language.lang4}</li>
+                                            <li>{language.lang1},</li>
+                                            <li>{language.lang2},</li>
+                                            <li>{language.lang3},</li>
+                                            <li>{language.lang4}</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div className="dl">
                                     <ul>
-                                        <li>{this.state.time}</li>
-                                        <li><FaCircle style={{fontSize:"0.5rem"}}/> {this.state.cate.cat1}, {this.state.cate.cat2}</li>
-                                        <li><FaCircle style={{fontSize:"0.5rem"}}/> {this.state.date}</li>
+                                        <li>{time}</li>
+                                        <li><FaCircle style={{ fontSize: "0.5rem" }} /> {cate.cat1}, {cate.cat2}</li>
+                                        <li><FaCircle style={{ fontSize: "0.5rem" }} /> {date}</li>
                                     </ul>
                                 </div>
                                 <div className="dl-p">
-                                    <p>{this.state.para}</p>
+                                    <p>{para}</p>
                                 </div>
                                 <div className="m-card-btn">
-                                    <MovieCardBtn btnTitle={"Play"} icon={<FaPlay style={{fontSize:"0.875rem"}}/>}/>
-                                    <MovieCardBtn btnTitle={"Download"} icon={<MdOutlineDownloading style={{fontSize:"1rem"}}/>}/>
+                                    <MovieCardBtn btnTitle={"Play"} icon={<FaPlay style={{ fontSize: "0.875rem" }} />} />
+                                    <MovieCardBtn btnTitle={"Download"} icon={<MdOutlineDownloading style={{ fontSize: "1rem" }} />} />
                                 </div>
                             </div>
                         </div>
                         <div className="m-card-rit">
                             <div className="mcr-top">
-                                <SaveListBtn saveBtnT={this.state.saveList} sbIcon={<CiBookmark />}/>
+                                <button className="pd-btn">
+                                    {saveList ? <LuBookmarkCheck /> : <LuBookmark />}
+                                </button>
                             </div>
-                            <div className="mcr-btm dl" >
+                            <div className="mcr-btm dl">
                                 <p>Rate us</p>
-                                <button className="pm-btn" onClick={this.increase}><FaPlus /></button>
-                                <h3>{this.state.star}</h3>
-                                <button className="pm-btn" onClick={this.decrease}><FaMinus /></button>
+                                <button className="pm-btn" onClick={() => onIncrease}><FaPlus /></button>
+                                <h3>{star}</h3>
+                                <button className="pm-btn" onClick={() => onDecrease}><FaMinus /></button>
                             </div>
-                        </div>  
+                        </div>
                     </div>
                 </div>
             </>
-        )
+        );
     }
 }

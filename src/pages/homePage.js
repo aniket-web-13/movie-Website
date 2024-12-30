@@ -1,10 +1,11 @@
-import { MovieCard } from "../components/shared/movieCard";
+import { MovieInfo } from "../components/movieFunc";
+
 
 
 function Home() {
     return(
-        <>
-          <MovieCard />
+        <>     
+           <MovieInfo />
         </>
     )    
 }
