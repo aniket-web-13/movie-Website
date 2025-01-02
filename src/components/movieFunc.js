@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { LuBookmark, LuBookmarkCheck  } from "react-icons/lu";
+// import { LuBookmark, LuBookmarkCheck  } from "react-icons/lu";
 
 
 
@@ -7,6 +7,7 @@ import { LuBookmark, LuBookmarkCheck  } from "react-icons/lu";
 import { MovieCard } from "./shared/movieCard";
 
 export class MovieInfo extends Component {
+    
     constructor() {
         super();
         this.state = {
@@ -94,6 +95,7 @@ export class MovieInfo extends Component {
             ]
         };
     }
+    
 
     // for increasing rating button
     increase = () => {
@@ -114,13 +116,15 @@ export class MovieInfo extends Component {
     };
 
     bookMarkAdd = () => {
-        { this.state.saveList ? <LuBookmarkCheck /> : <LuBookmark /> };
+        // { this.state.saveList ? <LuBookmarkCheck /> : <LuBookmark /> };
     }
+ 
     render() {
+ 
 
         const { series } = this.state;
         console.log("Series state in MovieInfo:", series);
-
+        // console.log(this.increase);
         return (
             <>
                 {series.map((value, index) => (
@@ -132,9 +136,12 @@ export class MovieInfo extends Component {
                         onAdd={this.bookMarkAdd()}
                     />
                 ))}
+                  
             </>
         );
     }
 }
+
+
 
 
