@@ -1,0 +1,46 @@
+.nav-padding {
+    padding: 1rem 0;
+}
+
+.container {
+    width: 98%;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+.nav-main-count {
+    width: 100%;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(to top, black, rgb(99, 98, 98));
+}
+.cart-icon{
+    color: white;
+    background: none;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.125rem 0.25rem;
+    &:hover{
+        background-color: lightgray;
+        color: black;
+    }
+}
+.nav-inn{
+    width: fit-content;
+    padding: 0.5rem;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    h2{
+        font-size: 2.5rem;
+        font-family: "Playfair Display", serif;
+    }
+}
+.cart-num{
+    font-size: 1.5rem;
+}

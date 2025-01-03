@@ -7,12 +7,12 @@ import { MovieCardBtn } from "../shared/buttons.jsx";
 
 export class MovieCard extends Component {
     render() {
-        var { series, onIncrease, onDecrease } = this.props;
+        const { series, onStarAdd, onStarMinus, onAddCart } = this.props;
 
         // console.log("Series prop received:", series); // Log the series prop
 
-        const { src, name, d, language, time, cate, saveList, date, star, para } = series;
-       
+        const { src, name, d, language, time, cate, fav, date, star, para, addToCart } = series;
+
         // console.log(this.onIncrease);
 
         return (
@@ -57,14 +57,17 @@ export class MovieCard extends Component {
                         <div className="m-card-rit">
                             <div className="mcr-top">
                                 <button className="pd-btn">
-                                    {saveList ? <LuBookmarkCheck /> : <LuBookmark />}
+                                    {fav ? <LuBookmarkCheck /> : <LuBookmark />}
+                                </button>
+                                <button className="pd-btn" onClick={() => onAddCart(series)}>
+                                    {addToCart ? <LuBookmark /> : <LuBookmarkCheck />}
                                 </button>
                             </div>
                             <div className="mcr-btm dl">
                                 <p>Rate us</p>
-                                <button className="pm-btn" onClick={() => onIncrease}><FaPlus /></button>
+                                <button className="pm-btn" onClick={() => onStarAdd(series)}><FaPlus /></button>
                                 <h3>{star}</h3>
-                                <button className="pm-btn" onClick={() => onDecrease}><FaMinus /></button>
+                                <button className="pm-btn" onClick={() => onStarMinus(series)}><FaMinus /></button>
                             </div>
                         </div>
                     </div>
