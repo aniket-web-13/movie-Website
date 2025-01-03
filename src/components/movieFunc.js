@@ -116,7 +116,7 @@ export class MovieInfo extends Component {
         this.setState({
             series
         })
-        console.log(series);
+        console.log(series.indexOf(ser))
     }
 
     // for increasing rating button
